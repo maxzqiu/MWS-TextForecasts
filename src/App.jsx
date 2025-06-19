@@ -23,9 +23,6 @@ function App() {
         let losangelesdata=await res1.json();
         let res2=await fetch(CLAREMONT);
         let claremontdata=await res2.json();
-        console.log(newportbeachdata);
-        console.log(losangelesdata);
-        console.log(claremontdata);
         let data=""
         function getData(day,dataSet,item){
           if (item==="windSpeed" && parseInt((dataSet.properties.periods[day][item]).substring(0,1))===0){
@@ -37,7 +34,33 @@ function App() {
           } else if (item==="shortForecast"){
             data+="..."+dataSet.properties.periods[day][item]+"\n"
           } else if (item==="temperature"){
-            data+="High/Low Temp: "+dataSet.properties.periods[day][item]+"\n";
+            if (dataSet===newportbeachdata){
+              if (dataSet.properties.periods[1]["name"].toUpperCase()==="TONIGHT"){
+                if (day===2){
+                  if (61<=dataSet.properties.periods[2][item] && dataSet.properties.periods[2][item]<=64){
+                    data+="High/Low Temp: "+(dataSet.properties.periods[2][item]+5)+"\n";
+                  }  else {
+                    data+="High/Low Temp: "+(dataSet.properties.periods[2][item]+4)+"\n";
+                  }
+                  
+                } else {
+                  data+="High/Low Temp: "+dataSet.properties.periods[day][item]+"\n";
+                }
+              }else if (dataSet.properties.periods[0]["name"].toUpperCase()==="TONIGHT"){
+                if (day===1){
+                  if (61<=dataSet.properties.periods[1][item] && dataSet.properties.periods[1][item]<=64){
+                    data+="High/Low Temp: "+(dataSet.properties.periods[1][item]+5)+"\n";
+                  }  else {
+                    data+="High/Low Temp: "+(dataSet.properties.periods[1][item]+4)+"\n";
+                  } 
+                }else  {
+                data+="High/Low Temp: "+dataSet.properties.periods[day][item]+"\n";
+              }
+            } else {
+              
+              data+="High/Low Temp: "+dataSet.properties.periods[day][item]+"\n";
+            }
+            
           } else if (item==="probabilityOfPrecipitation"){
             data+="Chance of Rain: "+dataSet.properties.periods[day][item].value+"\n";
           } else if (item==="windSpeed"){
@@ -47,6 +70,7 @@ function App() {
             return;
           }
         }
+      }
         data+="General Forecast Product\n";
         data+="Max's Weather Service Newport Beach CA \n"
         data+="time goes here \n\n"
