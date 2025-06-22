@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
-const NEWPORTBEACH="https://api.weather.gov/gridpoints/SGX/38,57/forecast";
-const LOSANGELES="https://api.weather.gov/gridpoints/LOX/155,45/forecast";
-const CLAREMONT="https://api.weather.gov/gridpoints/LOX/174,44/forecast";
+const NEWPORTBEACH="https://nws-api-server.vercel.app/newportbeach";
+const LOSANGELES="https://nws-api-server.vercel.app/losangeles";
+const CLAREMONT="https://nws-api-server.vercel.app/claremont";
 const ITEMS=["name","shortForecast","temperature","windSpeed","probabilityOfPrecipitation"]
 
 
