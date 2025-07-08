@@ -56,20 +56,26 @@ function App() {
                 }else  {
                 data+="High/Low Temp: "+dataSet.properties.periods[day][item]+"\n";
               }
+            }
             } else {
               
               data+="High/Low Temp: "+dataSet.properties.periods[day][item]+"\n";
             }
-            
+          
           } else if (item==="probabilityOfPrecipitation"){
-            data+="Chance of Rain: "+dataSet.properties.periods[day][item].value+"\n";
+            if ((dataSet.properties.periods[day][item].value)<5){
+                null
+            } else {
+              data+="Chance of Rain: "+dataSet.properties.periods[day][item].value+"\n";
+            }
+            
           } else if (item==="windSpeed"){
             data+="Wind Speed: "+dataSet.properties.periods[day][item]+"\n"
           } else {
             data+=item+": "+dataSet.properties.periods[day][item]+"\n";
             return;
           }
-        }
+        
       }
         data+="General Forecast Product\n";
         data+="Max's Weather Service Newport Beach CA \n"
