@@ -43,7 +43,9 @@ function App() {
                     data+="High/Low Temp: "+(dataSet.properties.periods[2][item]+4)+"\n";
                   }
                   
-                } else {
+                } else if (day===4){
+                  data+="High/Low Temp: "+dataSet.properties.periods[4][item]+5+"\n"
+                }else {
                   data+="High/Low Temp: "+dataSet.properties.periods[day][item]+"\n";
                 }
               }else if (dataSet.properties.periods[0]["name"].toUpperCase()==="TONIGHT"){
@@ -53,6 +55,8 @@ function App() {
                   }  else {
                     data+="High/Low Temp: "+(dataSet.properties.periods[1][item]+4)+"\n";
                   } 
+                } else if (day===3){
+                  data+="High/Low Temp: "+dataSet.properties.periods[3][item]+5+"\n"
                 }else  {
                 data+="High/Low Temp: "+dataSet.properties.periods[day][item]+"\n";
               }
