@@ -44,7 +44,7 @@ function App() {
                   }
                   
                 } else if (day===4){
-                  data+="High/Low Temp: "+dataSet.properties.periods[4][item]+5+"\n"
+                  data+="High/Low Temp: "+(dataSet.properties.periods[4][item]+5)+"\n"
                 }else {
                   data+="High/Low Temp: "+dataSet.properties.periods[day][item]+"\n";
                 }
@@ -56,7 +56,7 @@ function App() {
                     data+="High/Low Temp: "+(dataSet.properties.periods[1][item]+4)+"\n";
                   } 
                 } else if (day===3){
-                  data+="High/Low Temp: "+dataSet.properties.periods[3][item]+5+"\n"
+                  data+="High/Low Temp: "+(dataSet.properties.periods[3][item]+5)+"\n"
                 }else  {
                 data+="High/Low Temp: "+dataSet.properties.periods[day][item]+"\n";
               }
